@@ -32,6 +32,12 @@
     aw@m:/opt$
     ```
 
+### VirtualBox
+
+1. 下载安装[VirtualBox](https://www.virtualbox.org/)
+2. 下载安装扩展[Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads)
+3. 如果显示不全，可以调节`显存大小`
+
 ## 主题优化
 
 ### 主题、图标等更换
@@ -50,3 +56,162 @@
 1. 下载顶栏扩展 `sudo apt install gnome-shell-extensions`
 2. 下载[unite-shell](https://github.com/liujinlong123/unite-shell)
 3. 后面补充图片
+
+
+## 其他软件更新
+
+### Latex
+
+### Unity安装
+
+## 配置文件
+
+### Vscode 配置文件
+```json
+{
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.fontSize": 16,
+    "java.imports.gradle.wrapper.checksums": [
+        {
+            "sha256": "e2b82129ab64751fd40437007bd2f7f2afb3c6e41a9198e628650b22d5824a14",
+            "allowed": true
+        }
+    ],
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.factorypath": true,
+        "**/.localhooks": true,
+        "**/.project": true,
+        "**/.settings": true
+    },
+    "java.semanticHighlighting.enabled": true,
+    "C_Cpp.default.includePath": [
+        "${JAVA_HOME}/include",
+        "${JAVA_HOME}/include/linux"
+    ],
+    "python.languageServer": "Pylance",
+    "editor.formatOnType": true,
+    "editor.formatOnSave": false,
+    "editor.minimap.enabled": false,
+    "cmake.configureOnOpen": true,
+    "code-runner.runInTerminal": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "go.toolsManagement.autoUpdate": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.recipes": [
+        // 中文
+        // {
+        //     "name": "xelatex -> bibtex -> xelatex*2",
+        //     "tools": [
+        //         "xelatex",
+        //         "bibtex",
+        //         "xelatex",
+        //         "xelatex"
+        //     ]
+        // },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex*2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
+        },
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.gz"
+    ],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120,
+    "redhat.telemetry.enabled": true,
+    "omnisharp.useGlobalMono": "always",
+    "omnisharp.useModernNet": false,
+    "window.titleBarStyle": "custom",
+    // "omnisharp.path": "latest",
+}
+```
+
+
+### shell配置文件
+
+```bash
+# flutter国内镜像
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+export PATH=$JAVA_HOME/bin:/home/aw/Android/Sdk/platform-tools:/home/aw/Android/Sdk/build-tools/33.0.0:/home/aw/works/script/command:/home/aw/Android/flutter_linux_3.0.2-stable/flutter/bin:$PATH
+```
