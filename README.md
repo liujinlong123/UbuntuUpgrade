@@ -215,3 +215,15 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 
 export PATH=$JAVA_HOME/bin:/home/aw/Android/Sdk/platform-tools:/home/aw/Android/Sdk/build-tools/33.0.0:/home/aw/works/script/command:/home/aw/Android/flutter_linux_3.0.2-stable/flutter/bin:$PATH
 ```
+
+### Ubuntu设置apt代理
+
+```bash
+aw@m:/etc/apt/apt.conf.d$ cat proxy.conf 
+Acquire {
+  HTTP::proxy "http://127.0.0.1:8001";
+  HTTPS::proxy "http://127.0.0.1:8001";
+}
+
+aw@m:/etc/apt/apt.conf.d$
+```
