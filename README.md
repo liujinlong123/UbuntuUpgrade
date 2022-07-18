@@ -10,7 +10,7 @@
 6. 画图工具[Krita](https://krita.org/zh/) `sudo apt install krita` [KDE工具](https://kde.org/zh-cn/)
 7. 视频剪辑[Kdenlive](https://kdenlive.org/zh/) `sudo apt install kdenlive` [KDE工具](https://kde.org/zh-cn/)
 8. PDF标注工具[Okular](https://apps.kde.org/zh-cn/okular/) `sudo apt intall okular` [KDE工具](https://kde.org/zh-cn/)
-9. U盘制作工具[Startup Disk Creator] `sudo apt install usb-creator-gtk`
+9. U盘制作工具[Startup Disk Creator](https://en.wikipedia.org/wiki/Startup_Disk_Creator) `sudo apt install usb-creator-gtk`
 
 
 ### 输入法设置
