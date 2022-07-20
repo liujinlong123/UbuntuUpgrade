@@ -65,6 +65,11 @@
 
 ### Unity安装
 
+### [Gsconnect](https://github.com/GSConnect/gnome-shell-extension-gsconnect/wiki)
+
+1. 下载压缩包[地址](https://extensions.gnome.org/extension/1319/gsconnect/)
+2. [安装](https://github.com/GSConnect/gnome-shell-extension-gsconnect/wiki/Installation#standard): `gnome-extensions install --force gsconnect@andyholmes.github.io`
+
 ## 配置文件
 
 ### Vscode 配置文件
