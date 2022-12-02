@@ -70,6 +70,16 @@
 1. 下载压缩包[地址](https://extensions.gnome.org/extension/1319/gsconnect/)
 2. [安装](https://github.com/GSConnect/gnome-shell-extension-gsconnect/wiki/Installation#standard): `gnome-extensions install --force gsconnect@andyholmes.github.io`
 
+### Vim - Tab设置4个空格
+1. 在`/etc/vim/vimrc`中补充
+```bash
+set ts=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+```
+
 ## 配置文件
 
 ### Vscode 配置文件
