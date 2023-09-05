@@ -7,23 +7,24 @@
 3. 卸载Firefox `sudo snap remove firefox`
 4. 截图工具Flameshot `sudo apt intall flameshot`
 5. 图像裁剪GIMP `sudo apt install gimp`
-6. 画图工具[Krita](https://krita.org/zh/) `sudo apt install krita` [KDE工具](https://kde.org/zh-cn/)
-7. 视频剪辑[Kdenlive](https://kdenlive.org/zh/) `sudo apt install kdenlive` [KDE工具](https://kde.org/zh-cn/)
-8. PDF标注工具[Okular](https://apps.kde.org/zh-cn/okular/) `sudo apt intall okular` [KDE工具](https://kde.org/zh-cn/)
-9. U盘制作工具[Startup Disk Creator](https://en.wikipedia.org/wiki/Startup_Disk_Creator) `sudo apt install usb-creator-gtk`
+6. 画图工具 [Krita](https://krita.org/zh/) `sudo apt install krita` [KDE工具](https://kde.org/zh-cn/)
+7. 视频剪辑 [Kdenlive](https://kdenlive.org/zh/) `sudo apt install kdenlive` [KDE工具](https://kde.org/zh-cn/)
+8. PDF标注工具 [Okular](https://apps.kde.org/zh-cn/okular/) `sudo apt intall okular` [KDE工具](https://kde.org/zh-cn/)
+9. U盘制作工具 [Startup Disk Creator](https://en.wikipedia.org/wiki/Startup_Disk_Creator) `sudo apt install usb-creator-gtk`
 10. 复制到剪切板 `sudo apt install xsel` e.g `pwd | xsel -b`
+11. 键盘改键工具 [The via](https://github.com/the-via/releases/releases)
 
 
 ### 输入法设置
 
 1. [中州韵](https://rime.im/)输入法
-2. 安装[fcitx](https://github.com/fcitx/fcitx-rime) `sudo apt install fcitx-rime`
-3. 打开`fcitx 配置`, 需要退出登录
+2. 安装 [fcitx](https://github.com/fcitx/fcitx-rime) `sudo apt install fcitx-rime`
+3. 打开 `fcitx 配置`, 需要退出登录
 
 ### Android Studio设置
 
 1. 下载程序包
-2. android studio 安装路径`/opt/android-studio`
+2. android studio 安装路径 `/opt/android-studio`
     ```shell
     aw@m:/opt$ ls -lhia
     总用量 16K
@@ -51,177 +52,60 @@
 3. 图标`icon`更换位置
    + 用户目录 `~/.icons`
    + 根目录 `/usr/share/icons`
-4. 使用`tweaks`进行更改
+4. 使用 `tweaks` 进行更改
 
 ### 顶栏优化
 
-1. 下载顶栏扩展 `sudo apt install gnome-shell-extensions`
-2. 下载[unite-shell](https://github.com/liujinlong123/unite-shell)
-3. 后面补充图片
-
+1. 下载 `gnome` 扩展 `sudo apt install gnome-shell-extensions`
+2. 下载 [unite-shell](https://github.com/liujinlong123/unite-shell)
+3. 下载 `unite-shell.zip` 文件后, 使用 `gnome-extensions install unite-shell.zip` 加载扩展
+4. 加载成功后会在 `~/.local/share/gnome-shell/extensions` 文件夹下
+    ```shell
+    mk@m:~/.local/share/gnome-shell/extensions$ ls
+    gestureImprovements@gestures  gsconnect@andyholmes.github.io  hidebook@aiden.com  unite@hardpixel.eu
+    ```
+5. 需要打开扩展使其生效
+   + 或者使用 `gnome-extensions enable unite@hardpixel.eu` 使其生效
 
 ## 其他软件更新
-
-### Latex
-
-### Unity安装
 
 ### [Gsconnect](https://github.com/GSConnect/gnome-shell-extension-gsconnect/wiki)
 
 1. 下载压缩包[地址](https://extensions.gnome.org/extension/1319/gsconnect/)
-2. [安装](https://github.com/GSConnect/gnome-shell-extension-gsconnect/wiki/Installation#standard): `gnome-extensions install --force gsconnect@andyholmes.github.io`
+2. [安装](https://github.com/GSConnect/gnome-shell-extension-gsconnect/wiki/Installation#standard): `gnome-extensions install --force gsconnect@andyholmes.github.io.zip`
+3. 手机应用 [KDE Connect](https://github.com/KDE/kdeconnect-android) 项目
+
+### [Ubuntu 手势](https://github.com/harshadgavali/gnome-gesture-improvements)
+
+1. 下载压缩包[地址](https://extensions.gnome.org/extension/4245/gesture-improvements/)
+2. 安装 `gnome-extensions install gestureImprovements@gestures.zip`
+
+### ProxyChains
+
+1. 下载 `sudo apt install proxychains4`
+2. 配置 `/etc/proxychains.conf`
+    ```bash
+    [ProxyList]
+    # add proxy here ...
+    # meanwile
+    # defaults set to "tor"
+    socks4 	127.0.0.1 1081
+    socks5  127.0.0.1 1081
+    http    127.0.0.1 8001
+    ```
+3. 使用 `proxychains4 flutter pub get`
 
 ### Vim - Tab设置4个空格
 1. 在`/etc/vim/vimrc`中补充
-```bash
-set ts=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
-```
+    ```bash
+    set ts=4
+    set softtabstop=4
+    set shiftwidth=4
+    set expandtab
+    set autoindent
+    ```
 
 ## 配置文件
-
-### Vscode 配置文件
-```json
-{
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "editor.fontSize": 16,
-    "java.imports.gradle.wrapper.checksums": [
-        {
-            "sha256": "e2b82129ab64751fd40437007bd2f7f2afb3c6e41a9198e628650b22d5824a14",
-            "allowed": true
-        }
-    ],
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.factorypath": true,
-        "**/.localhooks": true,
-        "**/.project": true,
-        "**/.settings": true
-    },
-    "java.semanticHighlighting.enabled": true,
-    "C_Cpp.default.includePath": [
-        "${JAVA_HOME}/include",
-        "${JAVA_HOME}/include/linux"
-    ],
-    "python.languageServer": "Pylance",
-    "editor.formatOnType": true,
-    "editor.formatOnSave": false,
-    "editor.minimap.enabled": false,
-    "cmake.configureOnOpen": true,
-    "code-runner.runInTerminal": true,
-    "security.workspace.trust.untrustedFiles": "open",
-    "go.toolsManagement.autoUpdate": true,
-    "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.latex.autoClean.run": "onBuilt",
-    "latex-workshop.latex.recipes": [
-        // 中文
-        // {
-        //     "name": "xelatex -> bibtex -> xelatex*2",
-        //     "tools": [
-        //         "xelatex",
-        //         "bibtex",
-        //         "xelatex",
-        //         "xelatex"
-        //     ]
-        // },
-        {
-            "name": "pdflatex -> bibtex -> pdflatex*2",
-            "tools": [
-                "pdflatex",
-                "bibtex",
-                "pdflatex",
-                "pdflatex"
-            ]
-        },
-        {
-            "name": "xelatex",
-            "tools": [
-                "xelatex"
-            ]
-        },
-        {
-            "name": "latexmk",
-            "tools": [
-                "latexmk"
-            ]
-        },
-    ],
-    "latex-workshop.latex.tools": [
-        {
-            "name": "pdflatex",
-            "command": "pdflatex",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOC%"
-            ]
-        },
-        {
-            "name": "latexmk",
-            "command": "latexmk",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-pdf",
-                "%DOC%"
-            ]
-        },
-        {
-            "name": "xelatex",
-            "command": "xelatex",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOC%"
-            ]
-        },
-        {
-            "name": "bibtex",
-            "command": "bibtex",
-            "args": [
-                "%DOCFILE%"
-            ]
-        }
-    ],
-    "latex-workshop.latex.clean.fileTypes": [
-        "*.aux",
-        "*.bbl",
-        "*.blg",
-        "*.idx",
-        "*.ind",
-        "*.lof",
-        "*.lot",
-        "*.out",
-        "*.toc",
-        "*.acn",
-        "*.acr",
-        "*.alg",
-        "*.glg",
-        "*.glo",
-        "*.gls",
-        "*.ist",
-        "*.fls",
-        "*.log",
-        "*.fdb_latexmk",
-        "*.gz"
-    ],
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 120,
-    "redhat.telemetry.enabled": true,
-    "omnisharp.useGlobalMono": "always",
-    "omnisharp.useModernNet": false,
-    "window.titleBarStyle": "custom",
-    // "omnisharp.path": "latest",
-}
-```
-
 
 ### shell配置文件
 
@@ -244,3 +128,9 @@ Acquire {
 
 aw@m:/etc/apt/apt.conf.d$
 ```
+
+## Android 应用
+
+1. [USB 连接网络](https://github.com/Genymobile/gnirehtet)
+2. [隐私合规检测](https://github.com/zhengjim/camille)
+
