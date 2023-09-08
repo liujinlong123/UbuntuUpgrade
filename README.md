@@ -105,6 +105,10 @@
     set autoindent
     ```
 
+### 抓包工具 [mitmproxy](https://mitmproxy.org/)
+
+1. 下载后导入环境变量
+
 ## 配置文件
 
 ### shell配置文件
