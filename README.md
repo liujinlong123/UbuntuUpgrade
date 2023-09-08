@@ -133,6 +133,36 @@ Acquire {
 aw@m:/etc/apt/apt.conf.d$
 ```
 
+### VScode 禁止GPU加速 (防闪屏)
+
+1. 修改启动文件 `/usr/share/applications/code.desktop`
+2. 在 `Exec=/usr/share/code/code --unity-launch --disable-gpu %F` 后补充 `--disable-gpu`
+
+```bash
+aw@m:~/Downloads$ cat /usr/share/applications/code.desktop
+
+[Desktop Entry]
+Name=Visual Studio Code
+Comment=Code Editing. Redefined.
+GenericName=Text Editor
+Exec=/usr/share/code/code --unity-launch --disable-gpu %F
+Icon=vscode
+Type=Application
+StartupNotify=false
+StartupWMClass=Code
+Categories=TextEditor;Development;IDE;
+MimeType=text/plain;inode/directory;application/x-code-workspace;
+Actions=new-empty-window;
+Keywords=vscode;
+
+[Desktop Action new-empty-window]
+Name=New Empty Window
+Exec=/usr/share/code/code --new-window --disable-gpu %F
+Icon=vscode
+
+aw@m:~/Downloads
+```
+
 ## Android 应用
 
 1. [USB 连接网络](https://github.com/Genymobile/gnirehtet)
