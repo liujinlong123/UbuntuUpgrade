@@ -109,6 +109,38 @@
 
 1. 下载后导入环境变量
 
+### 图片OCR [Tesseract](https://github.com/tesseract-ocr/tesseract)
+
+1. [如何安装](https://tesseract-ocr.github.io/tessdoc/Installation.html)
+    ```bash
+    sudo apt install tesseract-ocr
+    sudo apt install libtesseract-dev
+    ```
+
+2. [如何使用](https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html)
+    ```bash
+    tesseract 0001.png/jpg output
+    ```
+
+### PDF转换为图片 [pdftoppm](https://ubunlog.com/zh-CN/pdftoppm-%E5%B0%86-pdf-%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E5%83%8F/)
+
+1. 如何安装
+    ```bash
+    sudo apt install poppler-utils
+    ```
+
+2. 如何使用
+    ```bash
+    pdftoppm -png ../ATMEGA48A.PDF output
+    ```
+
+3. 输出结果
+    ```bash
+    $ls
+    output-01.png  output-03.png  output-05.png  output-07.png  output-09.png  output-11.png  output-13.png  output-15.png  output-17.png  output-19.png  output-21.png  output-23.png  output-25.png  output-27.png  output-29.png  output-31.png  output-02.png  output-04.png  output-06.png  output-08.png  output-10.png  output-12.png  output-14.png  output-16.png  output-18.png  output-20.png  output-22.png  output-24.png  output-26.png  output-28.png  output-30.png  output-32.png
+    ```
+
+
 ## 配置文件
 
 ### shell配置文件
