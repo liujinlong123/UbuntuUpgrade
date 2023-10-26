@@ -211,7 +211,7 @@ aw@m:~/Downloads
     aw@mk:~/Downloads$ dpkg --get-selections | grep linux-image
 
     linux-image-6.5.0-10-generic			install
-    linux-image-6.5.0-9-generic			    deinstall
+    linux-image-6.5.0-9-generic			deinstall
     ```
 
 3. 删除操作其他不需要的内核 `sudo apt-get remove linux-image-(版本号)`
