@@ -195,6 +195,29 @@ Icon=vscode
 aw@m:~/Downloads
 ```
 
+## 问题解决
+
+### [ubuntu boot 空间不足解决方法](https://blog.csdn.net/BIT_HXZ/article/details/127305912)
+
+1. 查看当前使用内核版本号 `uname -a`
+    ```bash
+    aw@mk:~/Downloads$ uname -a
+
+    Linux mk 6.5.0-10-generic #10-Ubuntu SMP PREEMPT_DYNAMIC Fri Oct 13 13:49:38 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+    ```
+
+2. 终端下查看已经安装的旧的内核 `dpkg --get-selections | grep linux-image`
+    ```bash
+    aw@mk:~/Downloads$ dpkg --get-selections | grep linux-image
+
+    linux-image-6.5.0-10-generic			install
+    linux-image-6.5.0-9-generic			    deinstall
+    ```
+
+3. 删除操作其他不需要的内核 `sudo apt-get remove linux-image-(版本号)`
+
+4. 下次分区的时候 `boot` 分区多分一点 `1G` 左右。
+
 ## Android 应用
 
 1. [USB 连接网络](https://github.com/Genymobile/gnirehtet)
