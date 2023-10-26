@@ -2,6 +2,8 @@
 
 ## 软件升级
 
+### 基本软件安装
+
 1. chrome升级[chrome](https://www.google.cn/intl/zh-CN/chrome/)
 2. vscode[链接](https://code.visualstudio.com/)
 3. 卸载Firefox `sudo snap remove firefox`
@@ -43,9 +45,9 @@
 
 ### VirtualBox
 
-1. 下载安装[VirtualBox](https://www.virtualbox.org/)
-2. 下载安装扩展[Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads)
-3. 如果显示不全，可以调节`显存大小`
+1. 下载安装 [VirtualBox](https://www.virtualbox.org/)
+2. 下载安装扩展 [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads)
+3. 如果显示不全，可以调节 `显存大小`
 
 ## 主题优化
 
