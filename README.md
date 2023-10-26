@@ -17,7 +17,13 @@
 
 ### 输入法设置
 
-1. [中州韵](https://rime.im/)输入法
+#### 新版本输入法
+
+1. 新版本 `Ubuntu 23.10` 开始会自动安装 [`fcitx 5`](https://github.com/fcitx/fcitx5), 可以在设置中全局切换为 `fcitx`; 新版本的中文输入法支持联想功能, 使用舒适度上超过了 `中州韵` 输入法。
+
+#### 已废弃
+
+1. [中州韵](https://rime.im/) 输入法
 2. 安装 [fcitx](https://github.com/fcitx/fcitx-rime) `sudo apt install fcitx-rime`
 3. 打开 `fcitx 配置`, 需要退出登录
 
