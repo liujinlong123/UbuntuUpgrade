@@ -197,7 +197,7 @@ aw@m:~/Downloads
 
 ## 问题解决
 
-### [ubuntu boot 空间不足解决方法](https://blog.csdn.net/BIT_HXZ/article/details/127305912)
+### [Ubuntu boot 空间不足解决方法](https://blog.csdn.net/BIT_HXZ/article/details/127305912)
 
 1. 查看当前使用内核版本号 `uname -a`
     ```bash
