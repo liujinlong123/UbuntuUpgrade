@@ -63,13 +63,14 @@
 ### 主题、图标等更换
 
 1. 下载gnome-tweaks `sudo apt install gnome-tweaks`
-2. 主题`theme`更换位置
+2. 下载扩展管理工具 gnome-shell-extensions `sudo apt install gnome-shell-extensions`
+3. 主题`theme`更换位置
    + 用户目录 `~/.themes`
    + 根目录 `/usr/share/themes`
-3. 图标`icon`更换位置
+4. 图标`icon`更换位置
    + 用户目录 `~/.icons`
    + 根目录 `/usr/share/icons`
-4. 使用 `tweaks` 进行更改
+5. 使用 `tweaks` 进行更改
 
 ### 顶栏优化
 
