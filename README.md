@@ -53,7 +53,15 @@
 1. chrome升级[chrome](https://www.google.cn/intl/zh-CN/chrome/)
 2. vscode[链接](https://code.visualstudio.com/)
 3. 卸载Firefox `sudo snap remove firefox`
-4. 截图工具Flameshot `sudo apt intall flameshot`
+4. 截图工具[Flameshot](https://flameshot.org/) `sudo apt intall flameshot`
+   - 现在使用 `apt` 下载可能不可用, 直接下载 `AppImage` 文件
+   - 配置脚本
+     ```shell
+     #! /bin/bash
+
+     /home/aw/works/scripts/bin/Flameshot-12.1.0.x86_64.AppImage gui
+     ```
+   - 配置快捷键
 5. 图像裁剪GIMP `sudo apt install gimp`
 6. 画图工具 [Krita](https://krita.org/zh/) `sudo apt install krita` [KDE工具](https://kde.org/zh-cn/)
 7. 视频剪辑 [Kdenlive](https://kdenlive.org/zh/) `sudo apt install kdenlive` [KDE工具](https://kde.org/zh-cn/)
