@@ -9,6 +9,43 @@
 3. `/` 120GB
 4. `/home` 剩余空间
 
+### 自动挂载硬盘
+
+1. `sudo blkid` 用于查看硬盘的 `uuid`
+    ```shell
+    aw@m:~/Downloads$ sudo blkid 
+    /dev/nvme0n1p3: UUID="8d92c69c-7627-42ba-89f7-f0400340d7ec" TYPE="swap"
+    /dev/sda1: UUID="a4b4a34b-4f0f-4851-b92c-c5b150b46dc9" BLOCK_SIZE="4096" TYPE="ext4"    PARTUUID="d70e9bd1-cd5f-4e0e-9bde-5a1bb13e9463"
+    ```
+
+2. 修改配置文件 `sudo vim /etc/fstab`
+    ```shell
+    # /etc/fstab: static file system information.
+    #
+    # Use 'blkid' to print the universally unique identifier for a
+    # device; this may be used with UUID= as a more robust way to name devices
+    # that works even if disks are added and removed. See fstab(5).
+    #
+    # <file system> <mount point>   <type>  <options>       <dump>  <pass>
+    /dev/disk/by-uuid/8d92c69c-7627-42ba-89f7-f0400340d7ec none swap sw 0 0
+    # / was on /dev/nvme0n1p4 during curtin installation
+    /dev/disk/by-uuid/59829dfe-2550-4a3c-8627-d8f600bc817d / ext4 defaults 0 1
+    # /home was on /dev/nvme0n1p5 during curtin installation
+    /dev/disk/by-uuid/05ca2a21-1376-4005-b17c-7eaba6f285b4 /home ext4 defaults 0 1
+    # /boot was on /dev/nvme0n1p1 during curtin installation
+    /dev/disk/by-uuid/c7d7946c-6d77-4122-8a1d-c7414330a0ff /boot ext4 defaults 0 1
+    # /boot/efi was on /dev/nvme0n1p2 during curtin installation
+    /dev/disk/by-uuid/5BF7-95FA /boot/efi vfat defaults 0 1
+    # /home/aw/backup
+    /dev/disk/by-uuid/a4b4a34b-4f0f-4851-b92c-c5b150b46dc9 /home/aw/backup ext4 defaults 0 2
+    ```
+
+3. 最后一行 `/dev/disk/by-uuid/a4b4a34b-4f0f-4851-b92c-c5b150b46dc9 /home/aw/backup ext4 defaults 0 2` 是我们补充的, 其中第一个数字: 0表示开机不检查磁盘, 1表示开机检查磁盘; 第二个数字: 0表示交换分区, 1代表启动分区（Linux）, 2表示普通分区。
+
+4. 设置好后务必执行 `sudo mount -a` 检查是否配置正确, 否则开机会出现黑屏
+
+5. 重启
+
 ## 软件升级
 
 ### 基本软件安装
