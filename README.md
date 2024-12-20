@@ -69,7 +69,7 @@
 9. U盘制作工具 [Startup Disk Creator](https://en.wikipedia.org/wiki/Startup_Disk_Creator) `sudo apt install usb-creator-gtk`
 10. 复制到剪切板 `sudo apt install xsel` e.g `pwd | xsel -b`
 11. 键盘改键工具 [The via](https://github.com/the-via/releases/releases)
-
+12. Clash [clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev?tab=readme-ov-file)
 
 ### 输入法设置
 
