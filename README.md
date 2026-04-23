@@ -52,8 +52,9 @@
 
 1. chrome升级[chrome](https://www.google.cn/intl/zh-CN/chrome/)
 2. vscode[链接](https://code.visualstudio.com/)
-3. 卸载Firefox `sudo snap remove firefox`
-4. 截图工具[Flameshot](https://flameshot.org/) `sudo apt intall flameshot`
+3. cursor[链接](https://cursor.com/cn/download)
+4. 卸载Firefox `sudo snap remove firefox`
+5. 截图工具[Flameshot](https://flameshot.org/) `sudo apt intall flameshot`
    - 现在使用 `apt` 下载可能不可用, 直接下载 `AppImage` 文件
    - 配置脚本
      ```shell
@@ -61,15 +62,28 @@
 
      /home/aw/works/scripts/bin/Flameshot-12.1.0.x86_64.AppImage gui
      ```
-   - 配置快捷键
-5. 图像裁剪GIMP `sudo apt install gimp`
-6. 画图工具 [Krita](https://krita.org/zh/) `sudo apt install krita` [KDE工具](https://kde.org/zh-cn/)
-7. 视频剪辑 [Kdenlive](https://kdenlive.org/zh/) `sudo apt install kdenlive` [KDE工具](https://kde.org/zh-cn/)
-8. PDF标注工具 [Okular](https://apps.kde.org/zh-cn/okular/) `sudo apt intall okular` [KDE工具](https://kde.org/zh-cn/)
-9. U盘制作工具 [Startup Disk Creator](https://en.wikipedia.org/wiki/Startup_Disk_Creator) `sudo apt install usb-creator-gtk`
-10. 复制到剪切板 `sudo apt install xsel` e.g `pwd | xsel -b`
-11. 键盘改键工具 [The via](https://github.com/the-via/releases/releases)
-12. Clash [clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev?tab=readme-ov-file)
+   - 配置快捷键 `Alt + S`
+6. 图像裁剪GIMP `sudo apt install gimp`
+7. 画图工具 [Krita](https://krita.org/zh/) `sudo apt install krita` [KDE工具](https://kde.org/zh-cn/)
+8. 视频剪辑 [Kdenlive](https://kdenlive.org/zh/) `sudo apt install kdenlive` [KDE工具](https://kde.org/zh-cn/)
+9. PDF标注工具 [Okular](https://apps.kde.org/zh-cn/okular/) `sudo apt intall okular` [KDE工具](https://kde.org/zh-cn/)
+10. U盘制作工具 [Startup Disk Creator](https://en.wikipedia.org/wiki/Startup_Disk_Creator) `sudo apt install usb-creator-gtk`
+11. 复制到剪切板 `sudo apt install xsel` e.g `pwd | xsel -b`
+12. 键盘改键工具 [The via](https://github.com/the-via/releases/releases)
+13. Clash [clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev?tab=readme-ov-file)
+14. NVM[链接](https://github.com/nvm-sh/nvm)
+    - 配置脚本
+     ```shell
+     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+
+     nvm install --lts
+
+     npm install -g @openai/codex
+     npm install -g @openai/codex oh-my-codex
+     ```
+15. 飞书 [链接](https://www.feishu.cn/download)
+16. 微信 [链接](https://weixin.qq.com/)
+17. WPS [链接](https://platform.wps.cn/)
 
 ### 输入法设置
 
