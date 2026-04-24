@@ -205,6 +205,7 @@ aw@m:/opt$
   - 用户目录 `~/.icons`
   - 系统目录 `/usr/share/icons`
 5. 使用 `Tweaks` 进行切换
+6. 使用 [Tela](https://github.com/vinceliuice/Tela-icon-theme)
 
 ### 4.2 顶栏优化
 
