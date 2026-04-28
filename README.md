@@ -336,6 +336,17 @@ Icon=vscode
 
 - [mitmproxy](https://mitmproxy.org/)
 - 下载后记得加入环境变量
+- 设置快捷键
+```yaml
+  aw@m:~/.mitmproxy$ cat keys.yaml 
+  
+  -
+  key: c
+  cmd: export.clip curl @focus
+  help: Copy focused flow as cURL
+
+  aw@m:~/.mitmproxy$
+```
 
 ### 6.2 图片 OCR
 
