@@ -34,10 +34,10 @@
 
 #### 第一步：查看磁盘 UUID
 
-执行 `sudo blkid`：
+执行 `sudo-rs blkid`：
 
 ```shell
-aw@m:~/Downloads$ sudo blkid
+aw@m:~/Downloads$ sudo-rs blkid
 /dev/nvme0n1p3: UUID="8d92c69c-7627-42ba-89f7-f0400340d7ec" TYPE="swap"
 /dev/sda1: UUID="a4b4a34b-4f0f-4851-b92c-c5b150b46dc9" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="d70e9bd1-cd5f-4e0e-9bde-5a1bb13e9463"
 ```
@@ -47,7 +47,7 @@ aw@m:~/Downloads$ sudo blkid
 编辑文件：
 
 ```shell
-sudo vim /etc/fstab
+sudo-rs vim /etc/fstab
 ```
 
 参考配置：
@@ -79,12 +79,12 @@ sudo vim /etc/fstab
 - 第 5 列含义：`0` 表示开机不做 dump 检查。
 - 第 6 列含义：`0` 表示不做 fsck，`1` 常用于系统启动分区，`2` 常用于普通分区。
 
-> 修改完 `fstab` 后务必执行 `sudo mount -a`。如果配置错误，重启后可能直接黑屏或无法进入系统。
+> 修改完 `fstab` 后务必执行 `sudo-rs mount -a`。如果配置错误，重启后可能直接黑屏或无法进入系统。
 
 #### 第三步：验证并重启
 
 ```shell
-sudo mount -a
+sudo-rs mount -a
 ```
 
 确认无报错后再重启。
@@ -98,15 +98,15 @@ sudo mount -a
 1. Chrome：[下载链接](https://www.google.cn/intl/zh-CN/chrome/)
 2. VS Code：[下载链接](https://code.visualstudio.com/)
 3. Cursor：[下载链接](https://cursor.com/cn/download)
-4. 卸载 Firefox：`sudo snap remove firefox`
+4. 卸载 Firefox：`sudo-rs snap remove firefox`
 
 #### 截图、图像与视频工具
 
 1. [Flameshot](https://flameshot.org/)
-2. GIMP：`sudo apt install gimp`
-3. [Krita](https://krita.org/zh/)：`sudo apt install krita`
-4. [Kdenlive](https://kdenlive.org/zh/)：`sudo apt install kdenlive`
-5. [Okular](https://apps.kde.org/zh-cn/okular/)：`sudo apt install okular`
+2. GIMP：`sudo-rs apt install gimp`
+3. [Krita](https://krita.org/zh/)：`sudo-rs apt install krita`
+4. [Kdenlive](https://kdenlive.org/zh/)：`sudo-rs apt install kdenlive`
+5. [Okular](https://apps.kde.org/zh-cn/okular/)：`sudo-rs apt install okular`
 
 补充说明：
 
@@ -115,8 +115,16 @@ sudo mount -a
 
 ```shell
 #! /bin/bash
-
+# 设置为可保存图片的命令
 /home/aw/works/scripts/bin/Flameshot-12.1.0.x86_64.AppImage gui
+```
+
+- 截图快捷键可设置为 `Ctrl + Alt + S`。
+
+```shell
+#! /bin/bash
+# 设置为可复制到剪切板上的命令
+sh -c '/home/aw/works/scripts/bin/Flameshot-13.3.0.x86_64.AppImage gui -r | wl-copy --type image/png'
 ```
 
 - 截图快捷键可设置为 `Alt + S`。
@@ -124,10 +132,10 @@ sudo mount -a
 #### 系统与效率工具
 
 1. U 盘启动盘工具 [Startup Disk Creator](https://en.wikipedia.org/wiki/Startup_Disk_Creator)
-  `sudo apt install usb-creator-gtk`
-2. 剪贴板命令行工具 `xsel`
-  `sudo apt install xsel`
-   示例：`pwd | xsel -b`
+  `sudo-rs apt install usb-creator-gtk`
+2. 剪贴板命令行工具 `wl-clipboard`
+  `sudo-rs apt install wl-clipboard`
+   示例：`pwd | wl-copy`
 3. 键盘改键工具 [The via](https://github.com/the-via/releases/releases)
 4. 代理客户端 [clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev?tab=readme-ov-file)
 
@@ -164,7 +172,7 @@ npm install -g @openai/codex oh-my-codex
 
 1. [中州韵](https://rime.im/)
 2. 安装 `fcitx-rime`：
-  `sudo apt install fcitx-rime`
+  `sudo-rs apt install fcitx-rime`
 3. 打开 `fcitx` 配置，之后退出登录再重新进入
 
 ### 3.2 Android Studio
@@ -195,9 +203,9 @@ aw@m:/opt$
 ### 4.1 主题与图标
 
 1. 安装 `gnome-tweaks`
-  `sudo apt install gnome-tweaks`
+  `sudo-rs apt install gnome-tweaks`
 2. 安装扩展管理工具 `gnome-shell-extensions`
-  `sudo apt install gnome-shell-extensions`
+  `sudo-rs apt install gnome-shell-extensions`
 3. 主题目录：
   - 用户目录 `~/.themes`
   - 系统目录 `/usr/share/themes`
@@ -210,7 +218,7 @@ aw@m:/opt$
 ### 4.2 顶栏优化
 
 1. 安装 GNOME 扩展支持：
-  `sudo apt install gnome-shell-extensions`
+  `sudo-rs apt install gnome-shell-extensions`
 2. 下载 [unite-shell](https://github.com/liujinlong123/unite-shell)
 3. 安装扩展：
   `gnome-extensions install unite-shell.zip`
@@ -246,7 +254,7 @@ gestureImprovements@gestures  gsconnect@andyholmes.github.io  hidebook@aiden.com
 安装：
 
 ```bash
-sudo apt install proxychains4
+sudo-rs apt install proxychains4
 ```
 
 配置 `/etc/proxychains.conf`：
@@ -355,8 +363,8 @@ Icon=vscode
 安装：
 
 ```bash
-sudo apt install tesseract-ocr
-sudo apt install libtesseract-dev
+sudo-rs apt install tesseract-ocr
+sudo-rs apt install libtesseract-dev
 ```
 
 使用：
@@ -372,7 +380,7 @@ tesseract 0001.png/jpg output
 安装：
 
 ```bash
-sudo apt install poppler-utils
+sudo-rs apt install poppler-utils
 ```
 
 使用：
@@ -442,7 +450,7 @@ linux-image-6.5.0-9-generic             deinstall
 #### 删除旧内核
 
 ```bash
-sudo apt-get remove linux-image-(版本号)
+sudo-rs apt-get remove linux-image-(版本号)
 ```
 
 #### 经验记录
