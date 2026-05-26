@@ -247,6 +247,19 @@ gestureImprovements@gestures  gsconnect@andyholmes.github.io  hidebook@aiden.com
 3. 安装命令：
   `gnome-extensions install gestureImprovements@gestures.zip`
 
+### 4.5 Ptyxis 终端透明度
+```shell
+dconf read /org/gnome/Ptyxis/default-profile-uuid
+
+输出类似：
+'3aae5a177777aa966b1fd63467153e2d'
+
+把引号里面那串记下来。
+dconf write /org/gnome/Ptyxis/Profiles/3aae5a177777aa966b1fd63467153e2d/opacity 0.85
+
+0.85 表示 85% 不透明，也就是有一点透明。
+```
+
 ## 5. 代理与常用配置
 
 ### 5.1 ProxyChains
