@@ -7,6 +7,7 @@
   const state = {
     tables: [], selected: 0, matrix: [], mapped: null, sourceName: "",
     gap: config.defaultCellGapPx, margin: config.defaultOuterMarginPx,
+    fontSize: config.defaultFontSize, lineGapOffset: config.defaultLineGapOffset,
     splitBaseline: null, splitBaselineSelected: 0
   };
   const $ = (id) => document.getElementById(id);
@@ -15,6 +16,7 @@
     fileName: $("fileName"), fileMeta: $("fileMeta"), replaceButton: $("replaceButton"), notice: $("notice"),
     previewSection: $("previewSection"), exportSection: $("exportSection"), tablePickerWrap: $("tablePickerWrap"),
     tablePicker: $("tablePicker"), gapInput: $("gapInput"), marginInput: $("marginInput"),
+    fontSizeInput: $("fontSizeInput"), lineGapOffsetInput: $("lineGapOffsetInput"),
     splitRowsInput: $("splitRowsInput"), splitButton: $("splitButton"), resetSplitButton: $("resetSplitButton"),
     tablePreview: $("tablePreview"), tableSize: $("tableSize"),
     paperPreview: $("paperPreview"), paperMeta: $("paperMeta"), exportHint: $("exportHint"), downloadButton: $("downloadButton")
@@ -29,6 +31,8 @@
 
   configureNumberInput(ui.gapInput, config.cellGapRangePx, state.gap);
   configureNumberInput(ui.marginInput, config.outerMarginRangePx, state.margin);
+  configureNumberInput(ui.fontSizeInput, config.fontSizeRange, state.fontSize);
+  configureNumberInput(ui.lineGapOffsetInput, config.lineGapOffsetRange, state.lineGapOffset);
 
   function showError(message) {
     ui.notice.textContent = message;
@@ -241,6 +245,8 @@
       item.pageInfo.rotation = 0;
       item.pageInfo.pageWidth = cellWidth / PX_PER_MM;
       item.pageInfo.pageHeight = cellHeight / PX_PER_MM;
+      item.pageInfo.fontSize = state.fontSize * 10;
+      item.pageInfo.lineGapOffset = state.lineGapOffset;
       mapped.items.push(item);
     }));
     return mapped;
@@ -253,7 +259,7 @@
     try {
       state.mapped = createGridModel(state.matrix);
       clearError();
-      ui.paperMeta.textContent = `model.json · ${rows} × ${cols} · 间距 ${state.gap}px · 边距 ${state.margin}px`;
+      ui.paperMeta.textContent = `model.json · ${rows} × ${cols} · 字号 ${state.fontSize} · 行距 ${state.lineGapOffset}`;
       const totalItems = state.tables.reduce((sum, table) => sum + table.length * (table[0]?.length || 0), 0);
       ui.exportHint.textContent = `将把 ${state.tables.length} 张表格打包为 ZIP，共生成 ${totalItems} 个定位元素。`;
       ui.downloadButton.disabled = false;
@@ -345,6 +351,14 @@
   });
   ui.marginInput.addEventListener("input", () => {
     state.margin = Math.min(config.outerMarginRangePx.max, Math.max(config.outerMarginRangePx.min, Number(ui.marginInput.value) || 0));
+    if (state.matrix.length) updateMapping();
+  });
+  ui.fontSizeInput.addEventListener("input", () => {
+    state.fontSize = Math.min(config.fontSizeRange.max, Math.max(config.fontSizeRange.min, Number(ui.fontSizeInput.value) || config.defaultFontSize));
+    if (state.matrix.length) updateMapping();
+  });
+  ui.lineGapOffsetInput.addEventListener("input", () => {
+    state.lineGapOffset = Math.min(config.lineGapOffsetRange.max, Math.max(config.lineGapOffsetRange.min, Number(ui.lineGapOffsetInput.value) || 0));
     if (state.matrix.length) updateMapping();
   });
   ui.downloadButton.addEventListener("click", () => downloadAllJson().catch((error) => {
