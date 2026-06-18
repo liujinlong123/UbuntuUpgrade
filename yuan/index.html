@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word 表格转写字机 JSON</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%23245c3b%22/><text x=%2216%22 y=%2222%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22white%22>表</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">LOCAL DOCUMENT MAPPER</p>
+        <h1>Word 表格<br>转写字机 JSON</h1>
+        <p class="intro">文件只在当前浏览器中处理，不会上传。先检查表格与版面预览，确认后再导出。</p>
+      </div>
+      <div class="privacy"><span></span>纯本地处理</div>
+    </header>
+
+    <section class="card step-card" aria-labelledby="upload-title">
+      <div class="step-number">01</div>
+      <div class="step-body">
+        <h2 id="upload-title">选择 Word 文件</h2>
+        <label class="drop-zone" id="dropZone">
+          <input id="fileInput" type="file" accept=".doc,.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword">
+          <span class="upload-icon">↥</span>
+          <strong>点击选择或拖入文件</strong>
+          <small>支持 .docx，以及由 Word 保存的 HTML/XML 格式 .doc</small>
+        </label>
+        <div class="file-row hidden" id="fileRow">
+          <div><strong id="fileName"></strong><small id="fileMeta"></small></div>
+          <button class="text-button" id="replaceButton" type="button">重新选择</button>
+        </div>
+        <p class="notice hidden" id="notice" role="alert"></p>
+      </div>
+    </section>
+
+    <section class="card step-card muted" id="previewSection" aria-labelledby="preview-title">
+      <div class="step-number">02</div>
+      <div class="step-body">
+        <div class="section-heading">
+          <div><h2 id="preview-title">预览并校对</h2><p>支持多表格切换；单元格和格间距的修改会实时反映到版面。</p></div>
+          <div class="preview-controls">
+            <label class="table-picker hidden" id="tablePickerWrap">表格
+              <select id="tablePicker"></select>
+            </label>
+            <label class="gap-control">格间距
+              <input id="gapInput" type="number">
+              <span>px</span>
+            </label>
+            <label class="gap-control">四周边距
+              <input id="marginInput" type="number">
+              <span>px</span>
+            </label>
+            <div class="split-control">
+              <label>第一份
+                <input id="splitRowsInput" type="number" min="1" step="1">
+                <span>行</span>
+              </label>
+              <button id="splitButton" type="button" disabled>一分为二</button>
+              <button class="secondary-action" id="resetSplitButton" type="button" disabled>重置拆分</button>
+            </div>
+          </div>
+        </div>
+        <div class="preview-grid">
+          <div class="panel">
+            <div class="panel-head"><h3>Word 表格</h3><span id="tableSize">等待文件</span></div>
+            <div class="table-wrap" id="tablePreview"><div class="empty">选择 Word 文件后显示表格</div></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>写字机版面</h3><span id="paperMeta">model.json · 等待文件</span></div>
+            <div class="paper-wrap"><div class="paper" id="paperPreview"><div class="empty">版面预览</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card step-card muted" id="exportSection" aria-labelledby="export-title">
+      <div class="step-number">03</div>
+      <div class="step-body export-row">
+        <div><h2 id="export-title">导出全部定位 JSON</h2><p id="exportHint">选择含表格的 Word 文件后即可打包导出。</p></div>
+        <button class="primary" id="downloadButton" type="button" disabled>下载全部 JSON（ZIP） <span>↓</span></button>
+      </div>
+    </section>
+
+    <footer>默认参数：<code>config.js</code> · 模板来源：<code>/home/aw/Downloads/model.json</code> · 页面离线可用</footer>
+  </main>
+  <script src="vendor/jszip.min.js"></script>
+  <script src="config.js"></script>
+  <script src="template.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
